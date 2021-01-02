@@ -5,7 +5,7 @@ function ensureSlash() {
   if (window.location.hash) {
     return
   }
-  window.location.hash = '/'
+  window.location.hash = "/";
 }
 
 function getHash() {
@@ -20,7 +20,7 @@ export default class HashHistory extends History {
   }
 
   init(app) {
-    const history = this.history;
+    const history = this.router.history;
 
     const setupHashListener = () => {
       history.setupListener(); // 监听路径变化
@@ -30,7 +30,10 @@ export default class HashHistory extends History {
       history.getCurrentLocation(), // 子类获取对应的路径
       // 跳转成功后注册路径监听，为视图更新做准备
       setupHashListener
-    )
+    );
+    history.listen((route) => { // 需要更新_route属性
+      app._route = route;
+    });
   }
 
   // 获取当前路径
@@ -43,6 +46,6 @@ export default class HashHistory extends History {
     window.addEventListener('hashchange', () => {
       // 根据当前hash值 过度到对应路径
       this.transitionTo(getHash());
-    })
+    });
   }
 }

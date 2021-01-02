@@ -27,7 +27,7 @@ export default new VueRouter({ // 创建Vue-router实例，将实例注入到mai
         {
           path: "b",
           component: {
-            render: h => <h1>about B</h1>
+            render: h => <h1>about BBB</h1>
           }
         }
       ]
