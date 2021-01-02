@@ -2,7 +2,7 @@ export default {
   functional: true,
   render(h, context) {
     let { parent, data } = context;
-    const route = parent.$route;
+    const route = parent && parent.$route;
     let depth = 0;
     // 增加标示
     data.routerView = true;
@@ -12,7 +12,7 @@ export default {
       }
       parent = parent.$parent;
     }
-    const record = route.matched[depth];
+    const record = route && route.matched[depth];
     if (!record) {
       return h();
     }

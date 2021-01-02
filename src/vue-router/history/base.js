@@ -41,7 +41,7 @@ export default class History {
     // 去匹配路径
     const route = this.router.match(location);
     // 相同路径不必过渡
-    if (location === route.path && route.matched.length === this.current.matched.length) {
+    if (location === this.current.path && route.matched.length === this.current.matched.length) {
       return
     }
     const queue = [].concat(this.router.beforeHooks);

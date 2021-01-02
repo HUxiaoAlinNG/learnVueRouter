@@ -30,7 +30,7 @@ export default class VueRouter {
   }
 
   push(location) {
-    window.location.hash = location;
+    this.history.push(location);
   }
 
   // 将fn注册到队列中

@@ -48,4 +48,9 @@ export default class HashHistory extends History {
       this.transitionTo(getHash());
     });
   }
+
+  push(location) {
+    window.location.hash = location;
+    this.transitionTo(getHash());
+  }
 }

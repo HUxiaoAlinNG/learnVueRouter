@@ -8,7 +8,7 @@ import ChildA from "@/components/ChildA.vue"
 Vue.use(VueRouter)
 
 export default new VueRouter({ // 创建Vue-router实例，将实例注入到main.js中
-  mode: "hash",
+  mode: "history",
   routes: [
     {
       path: "/",
